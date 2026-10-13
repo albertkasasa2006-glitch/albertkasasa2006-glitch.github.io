@@ -1,0 +1,410 @@
+
+index.html
+
+100%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kasasa Albert | Data Science Student, Uganda Christian University</title>
+<meta name="description" content="Portfolio of Kasasa Albert, an Data Science student at Uganada Christian University interested in web development and data science.">
+<meta property="og:title" content="Kasasa Albert | Data Science Student">
+<meta property="og:description" content="Pthyon programmming, Web development and data science portfolio.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F3F5F7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='34' fill='%2312202F'/><rect y='34' width='100' height='33' fill='%23F5B700'/><rect y='67' width='100' height='33' fill='%23C8102E'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.dataset.theme = t;
+    document.documentElement.classList.add("js");
+  })();
+</script>
+
+<style>
+  :root {
+    --paper: #F3F5F7;
+    --ink: #12202F;
+    --muted: #4A5868;
+    --yellow: #F5B700;
+    --red: #C8102E;
+    --line: #D3DAE1;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+  [data-theme="dark"] {
+    --paper: #0E1A27;
+    --ink: #EEF2F6;
+    --muted: #A9B6C4;
+    --line: #26384B;
+    --red: #FF5A6E;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  section[id], main { scroll-margin-top: 5rem; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  .theme-fade, .theme-fade * {
+    transition: background-color .45s ease, color .45s ease, border-color .45s ease !important;
+  }
+
+  .skip {
+    position: absolute; left: -999px; top: 0;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--display); font-weight: 800; padding: .6rem 1rem; z-index: 20;
+  }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 30;
+    background: linear-gradient(90deg, var(--yellow), var(--red));
+    transform-origin: left; transform: scaleX(var(--p, 0));
+  }
+
+  header.top {
+    position: sticky; top: 0; z-index: 10; padding: .9rem 0;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s ease;
+  }
+  header.top.scrolled { border-bottom-color: var(--line); }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .mark { font-family: var(--display); font-weight: 800; text-decoration: none; }
+  .nav-right { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+  nav a {
+    font-family: var(--display); font-weight: 500; font-size: 1rem; text-decoration: none;
+    margin-left: 1.1rem; padding: .15rem 0;
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 0 3px no-repeat;
+    transition: background-size .35s var(--ease);
+  }
+  nav a:hover, nav a[aria-current="true"] { background-size: 100% 3px; }
+  .theme {
+    font-family: var(--display); font-weight: 500; font-size: .9rem; cursor: pointer;
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--ink); border-radius: 999px; padding: .3rem .85rem;
+    transition: background-color .25s ease, color .25s ease;
+  }
+  .theme:hover { background: var(--ink); color: var(--paper); }
+
+  .hero { padding: 3.5rem 0 3rem; }
+  .hero h1 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(3.25rem, 12vw, 8.5rem);
+    line-height: .95; letter-spacing: -.03em; margin: 0;
+  }
+  .hero h1 .line { display: block; overflow: hidden; padding: .04em 0 .1em; }
+  .hero h1 .line > span { display: block; animation: rise .9s var(--ease) both; }
+  .hero h1 .line:nth-child(2) > span { animation-delay: .12s; }
+
+  .flag { display: flex; flex-direction: column; gap: 0; width: min(100%, 34rem); margin: 1.5rem 0 1.5rem; }
+  .flag i { display: block; height: .6rem; transform-origin: left; animation: wipe .8s var(--ease) both; }
+  .flag i:nth-child(1) { background: var(--ink); animation-delay: .55s; }
+  .flag i:nth-child(2) { background: var(--yellow); animation-delay: .67s; }
+  .flag i:nth-child(3) { background: var(--red); animation-delay: .79s; }
+
+  .hero p, .hero .btn { animation: fade .8s ease both; }
+  .hero p { max-width: 36rem; margin: 0 0 1.5rem; animation-delay: 1s; }
+  .hero .btn { animation-delay: 1.12s; }
+
+  @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+  @keyframes wipe { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .btn {
+    display: inline-block; position: relative; overflow: hidden; isolation: isolate;
+    font-family: var(--display); font-weight: 800; font-size: 1rem;
+    background: var(--ink); color: var(--paper);
+    padding: .8rem 1.4rem; text-decoration: none; border: 0; cursor: pointer;
+  }
+  .btn::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: var(--red); transform: translateY(101%);
+    transition: transform .4s var(--ease);
+  }
+  .btn:hover::before, .btn:focus-visible::before { transform: none; }
+  .btn:hover, .btn:focus-visible { color: #fff; }
+
+  section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -.01em;
+    margin: 0 0 1.5rem; padding-bottom: .5rem; display: inline-block;
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 100% 5px no-repeat;
+  }
+  .js h2 { background-size: 0 5px; transition: background-size .8s var(--ease) .1s; }
+  .js h2.in { background-size: 100% 5px; }
+
+  .about p { max-width: 40rem; margin: 0 0 1rem; }
+
+  .project {
+    display: grid; grid-template-columns: 1fr; gap: .5rem 2rem; padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    background: linear-gradient(var(--red), var(--red)) left bottom / 0 3px no-repeat;
+    transition: background-size .6s var(--ease);
+  }
+  .project:first-of-type { border-top: 0; padding-top: 0; }
+  .project:hover, .project:focus-within { background-size: 100% 3px; }
+  .project h3 { font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin: 0; transition: transform .4s var(--ease); }
+  .project:hover h3, .project:focus-within h3 { transform: translateX(.5rem); }
+  .project p { margin: 0 0 .5rem; max-width: 38rem; }
+  .project .stack { color: var(--muted); font-size: 1rem; }
+  .link {
+    font-family: var(--display); font-weight: 800; font-size: 1rem; text-decoration: none;
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 100% 3px no-repeat;
+    transition: background-size .3s var(--ease), color .3s ease;
+  }
+  .link:hover { background-size: 100% 100%; color: #12202F; }
+  @media (min-width: 48rem) { .project { grid-template-columns: 16rem 1fr; } }
+
+  .skills { display: grid; gap: 1.5rem; }
+  .skills > div { border-top: 3px solid var(--line); padding-top: .9rem; transition: border-color .4s ease; }
+  .skills > div:hover { border-top-color: var(--yellow); }
+  .skills h3 { font-family: var(--display); font-weight: 800; font-size: 1.1rem; margin: 0 0 .35rem; }
+  .skills p { margin: 0; color: var(--muted); }
+  @media (min-width: 48rem) { .skills { grid-template-columns: repeat(3, 1fr); } }
+
+  .contact a.big {
+    font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 4.5vw, 2.4rem);
+    text-decoration: none; word-break: break-word;
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 100% 6px no-repeat;
+    transition: background-size .45s var(--ease);
+    padding-bottom: .1em;
+  }
+  .contact a.big:hover { background-image: linear-gradient(var(--red), var(--red)); }
+  .contact .copy-row { margin-top: 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .copy { font-size: .95rem; padding: .6rem 1.1rem; }
+  .copied { font-family: var(--display); font-weight: 500; color: var(--muted); opacity: 0; transition: opacity .3s ease; }
+  .copied.show { opacity: 1; }
+  .contact ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .contact li a {
+    font-family: var(--display); font-weight: 500; text-decoration: none;
+    background: linear-gradient(var(--yellow), var(--yellow)) left bottom / 0 3px no-repeat;
+    transition: background-size .35s var(--ease);
+  }
+  .contact li a:hover { background-size: 100% 3px; }
+
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .95rem; }
+
+  .js [data-reveal] {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s var(--ease);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js [data-reveal] { opacity: 1; transform: none; }
+    .js h2 { background-size: 100% 5px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Kasasa Albert</a>
+    <div class="nav-right">
+      <nav aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme" type="button" aria-pressed="false">Dark mode</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <h1 aria-label="Kasasa Albert">
+        <span class="line" aria-hidden="true"><span>Kasasa</span></span>
+        <span class="line" aria-hidden="true"><span>Albert</span></span>
+      </h1>
+      <div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p>I'm a Data Science student at Uganda Christian University. I do python programming and some basic data handling and entry and I'm learning data science.</p>
+      <a class="btn" href="#projects">See my projects</a>
+    </div>
+
+    <section id="about" class="about">
+      <h2>About me</h2>
+      <p data-reveal style="--i:0">I'm studying for a Bachelor of science in Data Science and Analytics at Uganda Christian University, starting in the 2026–2027 academic year.</p>
+      <p data-reveal style="--i:1">I like turning course work into things that run: a working online shop, a clear explanation of how networks are addressed. My longer-term goal is a career in data science, ideally in Uganda's tech and fintech sector.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="project" data-reveal style="--i:0">
+        <div>
+          <h3>E-commerce website, Agricom</h3>
+          <div class="stack">HTML, CSS, Python, JavaScript</div>
+        </div>
+        <div>
+          <p>A course project: an online shop with product pages and a layout that adapts to phones and laptops.</p>
+          <!-- TODO: point this at the project's own repo or live site -->
+          <a class="link" href="https://github.com/albertkasasa2006-glitch?tab=repositories" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
+      <article class="project" data-reveal style="--i:1">
+        <div>
+          <h3>Internet Protocol presentation</h3>
+          <div class="stack">Group work, networking</div>
+        </div>
+        <div>
+          <p>A group presentation covering IPv4, IPv6 and subnetting, prepared for ICT coursework at Uganda Christian University.</p>
+          <!-- TODO: replace with a link to the slides -->
+          <a class="link" href="#">View slides</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div data-reveal style="--i:0">
+          <h3>Web</h3>
+          <p>HTML, CSS, Python, JavaScript</p>
+        </div>
+        <div data-reveal style="--i:1">
+          <h3>Networking</h3>
+          <p>IPv4, IPv6, subnetting</p>
+        </div>
+        <div data-reveal style="--i:2">
+          <h3>Learning next</h3>
+          <p>Data science</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <!-- TODO: replace your.email@example.com in BOTH places below -->
+      <a class="big" id="email" href="mailto:albertkasasa2006@gmail.com">albertkasasa2006@gmail.com</a>
+      <div class="copy-row">
+        <button class="btn copy" type="button">Copy email</button>
+        <span class="copied" role="status" aria-live="polite"></span>
+      </div>
+      <ul>
+        <li><a href="https://github.com/albertkasasa2006-glitch" target="_blank" rel="noopener">GitHub</a></li>
+        <!-- TODO: replace # with your LinkedIn URL -->
+        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Kasasa Albert</div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var themeBtn = document.querySelector(".theme");
+  function syncThemeBtn() {
+    var dark = root.dataset.theme === "dark";
+    themeBtn.textContent = dark ? "Light mode" : "Dark mode";
+    themeBtn.setAttribute("aria-pressed", String(dark));
+    document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#0E1A27" : "#F3F5F7");
+  }
+  themeBtn.addEventListener("click", function () {
+    root.classList.add("theme-fade");
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    syncThemeBtn();
+    setTimeout(function () { root.classList.remove("theme-fade"); }, 500);
+  });
+  syncThemeBtn();
+
+  var header = document.querySelector("header.top");
+  var ticking = false;
+  function onScroll() {
+    var max = root.scrollHeight - innerHeight;
+    root.style.setProperty("--p", max > 0 ? Math.min(scrollY / max, 1) : 0);
+    header.classList.toggle("scrolled", scrollY > 8);
+    ticking = false;
+  }
+  addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  var revealTargets = document.querySelectorAll("[data-reveal], h2");
+  if ("IntersectionObserver" in window && !reduce) {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.2, rootMargin: "0px 0px -6% 0px" });
+    revealTargets.forEach(function (el) { revealIO.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  var links = document.querySelectorAll("nav a");
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var navIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.removeAttribute("aria-current"); });
+          var a = map[e.target.id];
+          if (a) a.setAttribute("aria-current", "true");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("section[id]").forEach(function (s) { navIO.observe(s); });
+  }
+
+  var copyBtn = document.querySelector(".copy");
+  var note = document.querySelector(".copied");
+  var timer;
+  copyBtn.addEventListener("click", function () {
+    var addr = document.getElementById("email").textContent.trim();
+    function done(msg) {
+      note.textContent = msg; note.classList.add("show");
+      clearTimeout(timer);
+      timer = setTimeout(function () { note.classList.remove("show"); }, 2200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function () { done("Copied"); }, function () { done("Copy failed. Select the email and copy it."); });
+    } else {
+      done("Copy failed. Select the email and copy it.");
+    }
+  });
+})();
+</script>
+</body>
+</html>
+Displaying index.html.
