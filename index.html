@@ -1,16 +1,12 @@
-
-index.html
-
-100%
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kasasa Albert | Data Science Student, Uganda Christian University</title>
-<meta name="description" content="Portfolio of Kasasa Albert, an Data Science student at Uganada Christian University interested in web development and data science.">
+<meta name="description" content="Portfolio of Kasasa Albert, a Data Science student at Uganda Christian University interested in web development and data science.">
 <meta property="og:title" content="Kasasa Albert | Data Science Student">
-<meta property="og:description" content="Pthyon programmming, Web development and data science portfolio.">
+<meta property="og:description" content="Python programming, web development and data science portfolio.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F3F5F7">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='34' fill='%2312202F'/><rect y='34' width='100' height='33' fill='%23F5B700'/><rect y='67' width='100' height='33' fill='%23C8102E'/></svg>">
@@ -157,6 +153,20 @@ index.html
 
   .about p { max-width: 40rem; margin: 0 0 1rem; }
 
+  /* Portrait: blends into the page, no frame */
+  .portrait { position: relative; margin: 0 auto 1.5rem; width: min(78%, 17rem); }
+  .portrait img {
+    display: block; width: 100%; height: auto;
+    mix-blend-mode: multiply;
+    -webkit-mask-image: radial-gradient(ellipse 68% 72% at 50% 40%, #000 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 68% 72% at 50% 40%, #000 62%, transparent 100%);
+  }
+  [data-theme="dark"] .portrait img { mix-blend-mode: normal; }
+  .about::after { content: ""; display: block; clear: both; }
+  @media (min-width: 48rem) {
+    .portrait { float: right; width: 19rem; margin: -1rem -1rem 1rem 2rem; }
+  }
+
   .project {
     display: grid; grid-template-columns: 1fr; gap: .5rem 2rem; padding: 1.5rem 0;
     border-top: 1px solid var(--line);
@@ -248,13 +258,16 @@ index.html
         <span class="line" aria-hidden="true"><span>Albert</span></span>
       </h1>
       <div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
-      <p>I'm a Data Science student at Uganda Christian University. I do python programming and some basic data handling and entry and I'm learning data science.</p>
+      <p>I'm a Data Science student at Uganda Christian University. I build websites and I'm learning data science.</p>
       <a class="btn" href="#projects">See my projects</a>
     </div>
 
     <section id="about" class="about">
       <h2>About me</h2>
-      <p data-reveal style="--i:0">I'm studying for a Bachelor of science in Data Science and Analytics at Uganda Christian University, starting in the 2026–2027 academic year.</p>
+      <figure class="portrait">
+        <img src="me.jpeg" alt="Portrait of Kasasa Albert" width="700" height="900" data-reveal>
+      </figure>
+      <p data-reveal style="--i:0">I'm a Year 1 student at Uganda Christian University, studying for a Bachelor of Science in Data Science.</p>
       <p data-reveal style="--i:1">I like turning course work into things that run: a working online shop, a clear explanation of how networks are addressed. My longer-term goal is a career in data science, ideally in Uganda's tech and fintech sector.</p>
     </section>
 
@@ -268,8 +281,8 @@ index.html
         </div>
         <div>
           <p>A course project: an online shop with product pages and a layout that adapts to phones and laptops.</p>
-          <!-- TODO: point this at the project's own repo or live site -->
-          <a class="link" href="https://github.com/albertkasasa2006-glitch/citylink_bank" target="_blank" rel="noopener">View code</a>
+          <!-- TODO: point this at the Agricom repo, e.g. https://github.com/albertkasasa2006-glitch/REPO-NAME -->
+          <a class="link" href="https://github.com/albertkasasa2006-glitch?tab=repositories" target="_blank" rel="noopener">View code</a>
         </div>
       </article>
 
@@ -280,8 +293,7 @@ index.html
         </div>
         <div>
           <p>A group presentation covering IPv4, IPv6 and subnetting, prepared for ICT coursework at Uganda Christian University.</p>
-          <!-- TODO: replace with a link to the slides -->
-          <a class="link" href="INTERNET-PROTOCOL(1).pdf">View slides</a>
+          <a class="link" href="internet-protocol.pdf" target="_blank" rel="noopener">View slides</a>
         </div>
       </article>
     </section>
@@ -291,11 +303,11 @@ index.html
       <div class="skills">
         <div data-reveal style="--i:0">
           <h3>Web</h3>
-          <p>HTML, CSS, Python, JavaScript</p>
+          <p>HTML, CSS, JavaScript</p>
         </div>
         <div data-reveal style="--i:1">
-          <h3>Networking</h3>
-          <p>IPv4, IPv6, subnetting</p>
+          <h3>Programming and networking</h3>
+          <p>Python, IPv4, IPv6, subnetting</p>
         </div>
         <div data-reveal style="--i:2">
           <h3>Learning next</h3>
@@ -306,7 +318,6 @@ index.html
 
     <section id="contact" class="contact">
       <h2>Contact</h2>
-      <!-- TODO: replace your.email@example.com in BOTH places below -->
       <a class="big" id="email" href="mailto:albertkasasa2006@gmail.com">albertkasasa2006@gmail.com</a>
       <div class="copy-row">
         <button class="btn copy" type="button">Copy email</button>
@@ -314,7 +325,7 @@ index.html
       </div>
       <ul>
         <li><a href="https://github.com/albertkasasa2006-glitch" target="_blank" rel="noopener">GitHub</a></li>
-        <!-- TODO: replace # with your LinkedIn URL -->
+        <!-- TODO: replace # with your LinkedIn URL, or delete this line -->
         <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </section>
@@ -407,4 +418,3 @@ index.html
 </script>
 </body>
 </html>
-Displaying index.html.
